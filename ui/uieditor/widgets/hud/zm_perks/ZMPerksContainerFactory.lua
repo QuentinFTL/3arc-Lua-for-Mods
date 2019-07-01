@@ -295,5 +295,4 @@ function CoD.ZMPerksContainerFactory.new(HudRef, InstanceRef)
 	end
 	return Elem
 end
-
 DataSources.ZMPerksFactory = DataSourceHelpers.ListSetup("ZMPerksFactory", DataSourcePerkInit, true)
