@@ -1,1 +1,11 @@
-
+Done :
+  - Perks :
+      - PerkListItem.lua
+      - PerkListItemFactory.lua
+      - ZMPerksContainer.lua
+      - ZMPerksContainerFactory.lua
+  - ZMScore :
+      - ZMScr_ListingLg.lua
+      - ZMScr_PlusPointsContainer.lua
+      - ZMScr.lua
+  - ...
