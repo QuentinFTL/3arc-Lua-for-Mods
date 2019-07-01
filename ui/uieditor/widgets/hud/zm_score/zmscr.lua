@@ -28,7 +28,7 @@ local function PlusScorePoint(Elem, Score, InstanceRef, HudRef, isSmallWidget, s
 	end
 	plus_point_container:setLeftRight(Elem:getLocalLeftRight())
 	plus_point_container:setTopBottom(Elem:getLocalTopBottom())
-	if isSmallWidget == true then
+	if isSmallWidget ~= true then
 		plus_point_container:setScale(0.750000)
 	end
 
@@ -127,7 +127,7 @@ local function PointsChange(Elem, InstanceRef, HudRef)
         else
             Elem[("ZMScrPlusPoints" .. index)].accountedForScore = Engine.GetModelValue(Engine.GetModel(Engine.GetModelForController(InstanceRef), ("PlayerList." .. index .. ".playerScore")))
             
-            local function __FUNC_154D_(arg0)
+            local function updateUnkPlayerScore(arg0)
             	local ModelValue = Engine.GetModelValue(arg0)
         	    if Elem[("ZMScrPlusPoints" .. index)].accountedForScore == nil then
             		Elem[("ZMScrPlusPoints" .. index)].accountedForScore = ModelValue
@@ -144,7 +144,7 @@ local function PointsChange(Elem, InstanceRef, HudRef)
         	    end
             end
 
-            Elem[("ZMScrPlusPoints" .. index)]:subscribeToModel(Engine.GetModel(Engine.GetModelForController(InstanceRef), ("PlayerList." .. index .. ".playerScore")), __FUNC_154D_)
+            Elem[("ZMScrPlusPoints" .. index)]:subscribeToModel(Engine.GetModel(Engine.GetModelForController(InstanceRef), ("PlayerList." .. index .. ".playerScore")), updateUnkPlayerScore)
         end
     end
 end
@@ -197,11 +197,11 @@ function CoD.ZMScr.new(HudRef, InstanceRef)
 	local listing2 = CoD.ZMScr_ListingSm.new(HudRef, InstanceRef)
 	listing2:setLeftRight(true, false, 16.280000, 101.280000)
 	listing2:setTopBottom(true, false, 52.120000, 87.120000)
-	local function __FUNC_246E_(arg0)
+	local function listing2Link(arg0)
 		listing2:setModel(arg0, InstanceRef)
 	end
 
-    listing2:subscribeToGlobalModel(InstanceRef, "ZMPlayerList", "1", __FUNC_246E_)
+    listing2:subscribeToGlobalModel(InstanceRef, "ZMPlayerList", "1", listing2Link)
     
 	Elem:addElement(listing2)
     Elem.Listing2 = listing2
@@ -209,11 +209,11 @@ function CoD.ZMScr.new(HudRef, InstanceRef)
 	local listing3 = CoD.ZMScr_ListingSm.new(HudRef, InstanceRef)
 	listing3:setLeftRight(true, false, 16.280000, 101.280000)
 	listing3:setTopBottom(true, false, 26.120000, 61.120000)
-	local function __FUNC_24BE_(arg0)
+	local function listing3Link(arg0)
 		listing3:setModel(arg0, InstanceRef)
 	end
 
-    listing3:subscribeToGlobalModel(InstanceRef, "ZMPlayerList", "2", __FUNC_24BE_)
+    listing3:subscribeToGlobalModel(InstanceRef, "ZMPlayerList", "2", listing3Link)
     
 	Elem:addElement(listing3)
     Elem.Listing3 = listing3
@@ -221,11 +221,11 @@ function CoD.ZMScr.new(HudRef, InstanceRef)
 	local listing4 = CoD.ZMScr_ListingSm.new(HudRef, InstanceRef)
 	listing4:setLeftRight(true, false, 16.280000, 101.280000)
 	listing4:setTopBottom(true, false, 0.000000, 35.000000)
-	local function __FUNC_250E_(arg0)
+	local function listing4Link(arg0)
 		listing4:setModel(arg0, InstanceRef)
 	end
 
-    listing4:subscribeToGlobalModel(InstanceRef, "ZMPlayerList", "3", __FUNC_250E_)
+    listing4:subscribeToGlobalModel(InstanceRef, "ZMPlayerList", "3", listing4Link)
     
 	Elem:addElement(listing4)
     Elem.Listing4 = listing4
@@ -257,7 +257,7 @@ function CoD.ZMScr.new(HudRef, InstanceRef)
 	Elem:addElement(zmScrPlusPoints3)
     Elem.ZMScrPlusPoints3 = zmScrPlusPoints3
 
-	local function __FUNC_255E_()
+	local function DSDefaultClip()
 		Elem:setupElementClipCounter(4.000000)
 		listingUser:completeAnimation()
 		Elem.ListingUser:setAlpha(0.000000)
@@ -426,7 +426,7 @@ function CoD.ZMScr.new(HudRef, InstanceRef)
 				return
 			end
 			Element:beginAnimation("keyframe", 159.000000, false, false, CoD.TweenType.Linear)
-			Element:registerEventHandler("transition_complete_keyframe", __FUNC_3B00_)
+			Element:registerEventHandler("transition_complete_keyframe", Listing2HudStartDefaultState_2)
 		end
 
 		listing2:completeAnimation()
@@ -490,7 +490,7 @@ function CoD.ZMScr.new(HudRef, InstanceRef)
 	Elem.clipsPerState = {
         DefaultState = 
         { 
-            DefaultClip = __FUNC_255E_, 
+            DefaultClip = DSDefaultClip, 
             HudStart = DefaultStateHudStart 
         },
         HudStart = {
