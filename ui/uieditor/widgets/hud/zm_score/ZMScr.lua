@@ -1,4 +1,3 @@
-
 require("ui.uieditor.widgets.HUD.ZM_Score.ZMScr_ListingLg")
 require("ui.uieditor.widgets.HUD.ZM_Score.ZMScr_ListingSm")
 require("ui.uieditor.widgets.HUD.ZM_Score.ZMScr_PlusPointsContainer")
@@ -73,7 +72,7 @@ local function PointsChange(Elem, InstanceRef, HudRef)
 	for index=0.000000, 3.000000, 1.000000 do
 		Elem[("ZMScrPlusPoints" .. index)]:setAlpha(0.000000)
 		Elem[("ZMScrPlusPoints" .. index)].lastAnim = 0.000000
-        -- Engine.CreateModel(Engine.GetModel(Engine.GetModelForController(InstanceRef), "hudItems.doublePointsActive"))
+
 		CoD.perController[InstanceRef].scoreEmitterCount[index] = {}
 		CoD.perController[InstanceRef].scoreEmitterCount[index].delayed = 0.000000
 		CoD.perController[InstanceRef].scoreEmitterCount[index].instant = 0.000000
@@ -172,12 +171,6 @@ function CoD.ZMScr.new(HudRef, InstanceRef)
 	listingUser:setDataSource("PlayerListZM")
 
 	local function SeeCondition(arg0, arg2, arg3)
-		-- local returnval0 = IsSelfModelValueEqualTo(arg2, arg1, "playerScoreShown", 0.000000)
-		-- if not returnval0 then
-			-- local returnval1 = AlwaysTrue()
-		-- else
-		-- end
-        -- return true
         return true
 	end
 

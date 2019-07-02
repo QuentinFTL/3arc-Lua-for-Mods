@@ -1,5 +1,3 @@
--- Decompiled by LuaDecompiler by JariK
-
 require("ui.uieditor.widgets.HUD.CP_DamageWidget.DamageWidgetMP_PanelContainer")
 require("ui.uieditor.widgets.onOffImage")
 
