@@ -1,3 +1,11 @@
+To add theses files in your mod, drag n' drop in your <bo3 root>/share/raw folder, or mods/your_mods folder,
+in your .zone, add :
+  rawfile,<file path>/<file>.lua
+  
+in your hud.lua :
+  require("<file path with '.' replacing '/'>.<file>")
+
+
 Done :
   - Perks :
       - PerkListItem.lua
