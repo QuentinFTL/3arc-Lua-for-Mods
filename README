@@ -1,3 +1,8 @@
+NOTE:
+  This is usable for Maps if you override in your csv the existant includes files (find in <bo3 root>/zone_source/all/*.csv)
+  and usable for mods without overriding any CSVs.
+
+
 To add theses files in your mod, drag n' drop in your <bo3 root>/share/raw folder, or mods/your_mods folder,
 in your .zone, add :
   rawfile,<file path>/<file>.lua
