@@ -5,6 +5,17 @@ in your .zone, add :
 in your hud.lua :
   require("<file path with '.' replacing '/'>.<file>")
 
+Examples :
+  zone:
+    rawfile,ui/uieditor/widgets/hud/zm_perks/PerkListItem.lua
+    rawfile,ui/uieditor/widgets/hud/zm_perks/PerkListItemFactory.lua
+    rawfile,ui/uieditor/widgets/hud/zm_perks/ZMPerksContainer.lua
+    rawfile,ui/uieditor/widgets/hud/zm_perks/ZMPerksContainerFactory.lua
+    
+  Lua:
+    require("ui.uieditor.widgets.HUD.ZM_Perks.ZMPerksContainerFactory")
+    require("ui.uieditor.widgets.HUD.ZM_Perks.ZMPerksContainer")
+    --others files are in theses files.
 
 Done :
   - Perks :
